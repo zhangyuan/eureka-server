@@ -1,0 +1,37 @@
+group 'com.evcheung.apps'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.6.RELEASE"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
+//apply plugin: "io.spring.dependency-management"
+//
+//dependencyManagement {
+//    imports {
+//        mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.2.4.RELEASE'
+//    }
+//}
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka-server', version: '1.2.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.4.2.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
